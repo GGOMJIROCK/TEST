@@ -2,7 +2,7 @@ var express = require("express");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host : '34.208.192.248:22'
-  user : ubuntu
+  user : 'ubuntu'
   database : 'testdb'
 });
 var app = express();
