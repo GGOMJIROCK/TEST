@@ -1,10 +1,9 @@
 var express = require("express");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host : 'ec2-34-208-192-248.us-west-2.compute.amazonaws.com',
+  host : '34.208.192.248',
   user : 'ubuntu',
-  port : '3306',
-  password : 'root',
+  port : '22',  
   database : 'testdb'
 });
 var app = express();
