@@ -35,7 +35,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * from Persons', function(err, rows, fields) {
+connection.query('SELECT * from test_table', function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
