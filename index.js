@@ -20,14 +20,21 @@ app.get('/', function(req, res) {
   res.send('Root');
 });
 
-app.get('/testdb', function(req, res) {
-
-  connection.query('call sample()', function(err, rows) {
-    if(err) throw err;
-    console.log('THE SOLUTION IS : ', rows);
-    res.send(rows);
-  });
+connection.connect();
+connection.query('call sample()', function(err, rows, fields) {
+  if (!err)
+    res.send('The solution is: ' + rows);
+  else
+    console.log('Error while performing Query.', err);
 });
+// app.get('/testdb', function(req, res) {
+//
+//   connection.query('call sample()', function(err, rows) {
+//     if(err) throw err;
+//     console.log('THE SOLUTION IS : ', rows);
+//     res.send(rows);
+//   });
+// });
 
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
