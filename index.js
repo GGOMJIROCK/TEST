@@ -17,16 +17,17 @@ var app = express();
 app.set('port', 80);//process.env.PORT || 3000);
 
 app.get('/', function(req, res) {
+  connection.connect();
+  connection.query('call sample()', function(err, rows, fields) {
+    if (!err)
+      res.send('The solution is: ' + rows);
+    else
+      console.log('Error while performing Query.', err);
+  });
   res.send('Root');
 });
 
-connection.connect();
-connection.query('call sample()', function(err, rows, fields) {
-  if (!err)
-    res.send('The solution is: ' + rows);
-  else
-    console.log('Error while performing Query.', err);
-});
+
 // app.get('/testdb', function(req, res) {
 //
 //   connection.query('call sample()', function(err, rows) {
