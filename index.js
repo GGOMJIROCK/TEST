@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 
 app.get('/testdb', function(req, res) {
 
-  connection.query('SELECT * from test_table', function(err, rows) {
+  connection.query('call sample()', function(err, rows) {
     if(err) throw err;
     console.log('THE SOLUTION IS : ', rows);
     res.send(rows);
